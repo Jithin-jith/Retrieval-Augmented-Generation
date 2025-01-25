@@ -42,7 +42,6 @@ print(response)
 # The model will not be able to provide information about llama2 as the vectorstore does not have information about llama2.
 # Now lets add information about llama2 as well to our vectorstore
 
-index = VectorStoreIndex([],embed_model=embed_model)
 documents = Document(text="""Llama 2 is a second-generation large language model (LLM) developed by Meta (formerly Facebook). 
                      It is an advanced AI model designed to generate human-like text, answer questions, perform tasks, 
                      and even assist in coding and content creation.""")
