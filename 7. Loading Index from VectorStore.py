@@ -4,6 +4,8 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.core import StorageContext
 from llama_index.embeddings.cohere import CohereEmbedding
 from llama_index.llms.cohere import Cohere
+from llama_index.core import VectorStoreIndex
+from llama_index.core import Document
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -33,6 +35,22 @@ index = VectorStoreIndex.from_vector_store(
 )
 
 # create a query engine
+query_engine = index.as_query_engine(llm=llm)
+response = query_engine.query("What is llama2?")
+print(response)
+
+# The model will not be able to provide information about llama2 as the vectorstore does not have information about llama2.
+# Now lets add information about llama2 as well to our vectorstore
+
+index = VectorStoreIndex([],embed_model=embed_model)
+documents = Document(text="""Llama 2 is a second-generation large language model (LLM) developed by Meta (formerly Facebook). 
+                     It is an advanced AI model designed to generate human-like text, answer questions, perform tasks, 
+                     and even assist in coding and content creation.""")
+
+print(documents)
+index.insert(document=documents,embed_model=embed_model)
+
+
 query_engine = index.as_query_engine(llm=llm)
 response = query_engine.query("What is llama2?")
 print(response)
