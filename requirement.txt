@@ -2,3 +2,5 @@ llama-index
 llama-index-llms-cohere
 llama-index-readers-web
 llama-index-embeddings-cohere
+llama-index-vector-stores-chroma
+chromadb
