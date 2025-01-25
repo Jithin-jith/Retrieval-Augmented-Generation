@@ -1,3 +1,4 @@
 llama-index
 llama-index-llms-cohere
 llama-index-readers-web
+llama-index-embeddings-cohere
