@@ -114,3 +114,5 @@ retriever = index.as_retriever(
 
 response = retriever.retrieve("What lessons can be learned from the poems about success?")
 print(response)
+
+client.close()
